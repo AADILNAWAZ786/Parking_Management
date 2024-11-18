@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+        <div class="card shadow my-4">
+            <div class="card-header">
+                <b><i class="bi bi-list-ul"></i>&nbsp;&nbsp;Add Category</b>
+            </div>
+            <div class="card-body col-12 m-auto">
+                
+                <form class="m-0" method="post" action="{% url 'add_category' %}">
+                    {% csrf_token %}
+                    <div class="row Category-1 m-0">
+                        <div class="form-group col-6 m-0">
+                            <label for="">Parking Area Number</label>
+                            <input type='text' name="paring_area_no" class="form-control" id="parkingAreaNumber">
+                        </div>
+                        <div class="form-group col-6 m-0">
+                            <label for="">Vehicle Type</label>
+                            <input type="text" name="vehical_Type" class="form-control" id="vehicleType">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Vehicle Limit</label>
+                            <input type="text" name="vehical_limit" class="form-control" id="v_limit">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Parking Charge</label>
+                            <input type="text" name="parking_charge" class="form-control" id="v_limit">
+                        </div>
+                        <div class="text-center my-3 ">
+                            <button class="col-12 btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="mycard card shadow">
+            <div class="card-header">
+                <b><i class="bi bi-list-check"></i>&nbsp;&nbsp;Manage Category</b>
+            </div>
+            <div class="card-body" style="margin-left: 100px;">
+                    <table id="example" class="table text-center table-striped table-bordered">
+                        <thead class="text-center">
+                            <tr>
+                                <th>#</th>
+                                <th>Area Number</th>
+                                <th>Vehicle Type</th>
+                                <th>Vehicle Limit</th>
+                                <th>Charge</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                            <tbody>
+                                {% for x in men %}
+                                <tr>
+                                    <td>{{x.id}}</td>
+                                    <td>{{x.paring_area_no}}</td>
+                                    <td>{{x.vehical_Type}}</td>
+                                    <td>{{x.vehical_limit}}</td>
+                                    <td>$ {{x.parking_charge}}</td>
+                                    <td><p class="paracolor" id="act">Activated</p></td>
+                                    
+                                    <td>
+                                        <button class="btn btn-primary" data-bs-toggle="modal" name="" data-bs-target="#edit{{i.id}}"><i class="bi bi-pencil-square"></i></button>
+                                        <form action="{% url 'delete' x.id %}" method="post" class="d-inline">
+                                        {% csrf_token %}    
+                                        <button class="btn btn-danger" id="del"><i class="bi bi-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                    </table>
+            </div>    
+        </div>
+    </div>
+    <div class="col-md-3 my-4 ">
+        <div class="card shadow">
+            <div class="card-header">
+                <b><i class="bi bi-info-circle"></i>&nbsp;&nbsp;Details:</b>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item d-flex justify-content-between align-items-center">Car <span>$ 4.00</span></li>
+                    <li class="list-group-item list-group-item d-flex justify-content-between align-items-center">Motorcycle<span>$ 2.00</span></li>
+                    <li class="list-group-item list-group-item d-flex justify-content-between align-items-center">Mini Van<span>$ 5.00</span></li>
+                    <li class="list-group-item list-group-item d-flex justify-content-between align-items-center">Pickup Van<span>$ 5.00</span></li>
+                    <li class="list-group-item list-group-item d-flex justify-content-between align-items-center">Mini Bus<span>$ 6.00</span></li>
+                    <li class="list-group-item list-group-item d-flex justify-content-between align-items-center">Car Type 101<span>$ 7.00</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

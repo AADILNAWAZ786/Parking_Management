@@ -1,0 +1,95 @@
+body{
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container{
+margin: 10%;
+/* margin-right: 5%; */
+}
+.card-1{
+    background: #01adbc;
+}
+.card-icon{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 45px;
+    margin-top: -40px;
+    margin-bottom: -30px;
+    border-radius: 73px;
+    
+}
+.card-body h6{
+    font-size: 13px;
+}
+.row{
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.col-md-9{
+    background: var(--bs-secondary-bg);
+}
+.sidebar{
+    margin-left: -12px;
+    width: 100%;
+    height: 100vh;
+}
+
+.sidebar ul{
+    font-size: 17px;
+    margin-left: -35px;
+    margin-bottom: 0;
+}
+.sidebar ul a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar ul li:hover{
+    background-color: #01adbc;
+    color: #fff;
+}
+
+.main{
+    /* background: var(--bs-secondary-bg); */
+    height: 100vh;
+    width: 100vh;
+}
+
+.main-card{
+    width: 100%;
+}
+
+.mycard{
+    margin-right: -50%;
+}
+.card-header{
+    background: var(	--bs-primary-bg-subtle);
+}
+#example{
+    margin-left: -50px;
+}
+.paracolor{
+    background-color: rgb(47, 241, 57);
+    border-radius: 15px;
+}
+.mycolor{
+    background-color: rgb(47, 241, 57);
+    border-radius: 3px;
+    padding: 5px;
+    text-align: center;
+}
+span{
+   font-size: 14px; 
+}
+.login-btn{
+    width: 150px;
+    margin-top: 5px;
+}
+.form-group{
+    margin-top: 16px ;
+}
+.list-group-item{
+    padding: 11px;
+}
